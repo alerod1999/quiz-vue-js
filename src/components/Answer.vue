@@ -15,7 +15,7 @@ const props = defineProps({
 const model = defineModel()
 const classes = computed(() => ({
     right: props.disabled && props.value === props.correctAnswer,
-    wrong: props.disabled && props.value !== props.correctAnswer
+    wrong: props.disabled && props.value !== props.correctAnswer && props.value === model.value
 
 }))
 </script>
