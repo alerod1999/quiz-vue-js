@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-//TP quiz 27:44
+//TP quiz 34
 import { onMounted, ref } from 'vue';
 import Quiz from './components/Quiz.vue';
 

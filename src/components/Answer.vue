@@ -1,14 +1,29 @@
 <template>
-<label :for="id">
+<label :for="id" :class="classes">
                         <input :disabled="disabled" :id="id" type="radio" name="answer" v-model="model" :value="value">
                         {{ value }}
                     </label>
 </template>
 <script setup>
+import { computed } from 'vue';
 const props = defineProps({
     id: String,
     disabled: Boolean,
-    value: String
+    value: String,
+    correctAnswer: String
 })
 const model = defineModel()
+const classes = computed(() => ({
+    right: props.disabled && props.value === props.correctAnswer,
+    wrong: props.disabled && props.value !== props.correctAnswer
+
+}))
 </script>
+<style>
+.right {
+    color: green;
+}
+.wrong {
+    color: red;
+}
+</style>

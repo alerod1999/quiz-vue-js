@@ -8,6 +8,7 @@
                     :disabled="hasAnswer"
                     :value="choice"
                     v-model="answer"
+                    :correctAnswer="question.correct_answer"
                     />
             </li>
         </ul>
