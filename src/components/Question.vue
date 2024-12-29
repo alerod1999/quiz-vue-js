@@ -4,7 +4,7 @@
         <ul>
             <li v-for="(choice, index) in randomChoices" :key="choice">
                     <label :for="`answer${index}`">
-                        <input :id="`answer${index}`" type="radio" name="answer" v-model="answer" :value="choice">
+                        <input :disabled="hasAnswer" :id="`answer${index}`" type="radio" name="answer" v-model="answer" :value="choice">
                         {{ choice }}
                     </label>
             </li>

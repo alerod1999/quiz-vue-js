@@ -3,7 +3,7 @@
         <h1> {{ quiz.title }}</h1>
         <Progress :value="step" :max="quiz.questions.length - 1" /> 
         <Question :key="question.question" :question="question" v-if="state === 'question'" @answer="addAnswer"/>
-        {{ answers }}
+        
         <Recap v-if="state === 'recap'" :answers="answers" :quiz="quiz"/>
         
     </div>
