@@ -2,7 +2,7 @@
     <div class="question">
         <h3> {{ question.question }}</h3>
         <ul>
-            <li v-for="(choice, index) in question.choices" :key="choice">
+            <li v-for="(choice, index) in randomChoices" :key="choice">
                     <label :for="`answer${index}`">
                         <input :id="`answer${index}`" type="radio" name="answer" v-model="answer" :value="choice">
                         {{ choice }}
@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import { shuffleArray } from '@/functions/array';
 import { ref, computed, watch } from 'vue';
 const props = defineProps({
     question: Object
@@ -23,6 +24,7 @@ const props = defineProps({
 const answer = ref(null)
 const emits = defineEmits(['answer'])
 const hasAnswer = computed(() => answer.value !== null)
+const randomChoices = computed(() => shuffleArray(props.question.choices))
 /*watch(() => props.question, () => {
     answer.value = null
 })*/
